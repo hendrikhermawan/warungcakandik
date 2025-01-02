@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Anda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .header {
+            background-color: #008e76;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 15px;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-item img {
+            width: 50px;
+            height: 50px;
+            background-color: #eaeaea;
+            border-radius: 4px;
+        }
+
+        .item-info {
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .item-info h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .item-info p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .item-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .item-actions button {
+            border: none;
+            background-color: #008e76;
+            color: white;
+            font-size: 18px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .item-actions button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .trash {
+            color: red;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .total {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        .order-now {
+            margin-top: 20px;
+            background-color: #008e76;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        .footer-icon {
+            text-align: center;
+            color: #008e76;
+        }
+
+        .footer-icon i {
+            font-size: 24px;
+        }
+
+        .footer-icon p {
+            margin: 5px 0 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Pesanan Anda</div>
+    <div class="container">
+        <div class="order-item">
+            <img src="#" alt="">
+            <div class="item-info">
+                <h4>Rica-rica Luwak</h4>
+                <p>Rp. 45.000</p>
+            </div>
+            <div class="item-actions">
+                <button>-</button>
+                <span>2</span>
+                <button>+</button>
+                <span class="trash">&#128465;</span>
+            </div>
+        </div>
+        <div class="order-item">
+            <img src="#" alt="">
+            <div class="item-info">
+                <h4>Es Teh</h4>
+                <p>Rp. 5.000</p>
+            </div>
+            <div class="item-actions">
+                <button>-</button>
+                <span>2</span>
+                <button>+</button>
+                <span class="trash">&#128465;</span>
+            </div>
+        </div>
+        <div class="total">TOTAL HARGA = Rp. 100.000</div>
+        <button class="order-now">Pesan Sekarang</button>
+    </div>
+
+    <div class="footer">
+        <div class="footer-icon">
+            <i>&#8962;</i>
+            <p>Home</p>
+        </div>
+        <div class="footer-icon">
+            <i>&#127828;</i>
+            <p>Menu</p>
+        </div>
+        <div class="footer-icon">
+            <i>&#127860;</i>
+            <p>Meja</p>
+        </div>
+        <div class="footer-icon">
+            <i>&#128722;</i>
+            <p>Keranjang</p>
+        </div>
+    </div>
+</body>
+</html>
