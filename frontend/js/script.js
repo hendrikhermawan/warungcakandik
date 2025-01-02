@@ -105,3 +105,75 @@ window.onload = function () {
     // Muat semua menu saat halaman dimuat
     loadMenu('all');
 };
+// Fungsi untuk memuat dan menampilkan menu
+async function loadMenu(category) {
+    try {
+        const response = await fetch(`/WARUNGCAKANDIK/backend/get_menu.php?category=${category}`);
+        const menuItems = await response.json();
+
+        if (menuItems.error) {
+            console.error(menuItems.error);
+            document.querySelector('.menu-list').innerHTML = `<p class="error">${menuItems.error}</p>`;
+            return;
+        }
+
+        // Memanggil fungsi setupSearch dengan menu yang dimuat
+        setupSearch(menuItems);
+
+    } catch (error) {
+        console.error('Error loading menu:', error);
+        document.querySelector('.menu-list').innerHTML = `<p class="error">Gagal memuat menu. Silakan coba lagi.</p>`;
+    }
+}
+
+// Fungsi untuk menampilkan menu dan menangani pencarian
+function setupSearch(menuItems) {
+    const searchInput = document.getElementById('search');  // Mengambil input pencarian
+    const menuList = document.querySelector('.menu-list'); // Tempat menu ditampilkan
+
+    // Event listener untuk input pencarian
+    searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.toLowerCase(); // Mengambil kata kunci pencarian
+        const filteredMenu = menuItems.filter(item =>
+            item.name.toLowerCase().includes(searchTerm) // Memfilter menu berdasarkan nama
+        );
+
+        // Menampilkan hasil filter
+        renderMenu(filteredMenu);
+    });
+
+    // Fungsi untuk merender menu
+    function renderMenu(items) {
+        menuList.innerHTML = ''; // Menghapus daftar menu lama
+
+        if (items.length === 0) {
+            menuList.innerHTML = `<p class="error">Menu tidak ditemukan</p>`;
+            return;
+        }
+
+        // Menambahkan item menu ke dalam daftar
+        items.forEach(item => {
+            const productItem = document.createElement('div');
+            productItem.classList.add('product-item');
+
+            productItem.innerHTML = `
+                <img src="${item.image_url}" alt="${item.name}">
+                <div class="product-info">
+                    <h3>${item.name}</h3>
+                    <p class="price">Rp. ${parseInt(item.price).toLocaleString('id-ID')}</p>
+                    <p class="rating">Rating: 4.9</p>
+                    <button data-id="${item.menu_id}" class="add-to-cart">+</button>
+                </div>
+            `;
+            menuList.appendChild(productItem);
+        });
+    }
+
+    // Menampilkan semua menu saat pertama kali
+    renderMenu(menuItems);
+}
+
+// Memuat menu berdasarkan kategori
+window.onload = function () {
+    loadMenu('all'); // Muat semua menu saat halaman dimuat
+};
