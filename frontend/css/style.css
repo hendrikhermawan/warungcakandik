@@ -73,7 +73,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
+    margin: 0px 0;
 }
 
 /* Ukuran tinggi banner disesuaikan di layar tablet */
@@ -127,32 +127,50 @@ body {
         left: 20px;
     }
 
-    .search-sort {
+    .search-sort-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0px 12px 0 12px;
     }
 
-    #search {
-        width: 280px;
-        padding: 12px 20px;
-        font-size: 16px;
-        border: 1px solid #138677;
+    .search-sort {
+        border-radius: 20px;
+        position: relative;
+        width: 100%;
+        max-width: 310px;
+    }
+
+    .search-sort input {
+        height: 23px;
+        width: 100%;
+        color: #777777;
+        padding: 10px 40px;
+        border: 1px solid #696969;
         border-radius: 12px;
-        background-color: #f9f9f9;
-        color: #333;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;/
-    }
-
-    #search::placeholder {
-        color: #aaa;
-    }
-
-    #search:focus {
-        border-color: #f07d31;
+        font-size: 14px;
         outline: none;
-        box-shadow: 0 0 8px rgba(240, 125, 49, 0.5);
+
+    }
+
+    .search-sort i {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        color: #007065;
+        font-size: 16px;
+    }
+
+    /* Hover effect */
+    .search-sort input:hover {
+        border-color: #007065;
+        background-color: #f8f8f8;
+    }
+
+    /* Focus effect */
+    .search-sort input:focus {
+        border-color: #007065;
+        background-color: #fff;
     }
 
     .lokasi {
@@ -166,6 +184,8 @@ body {
         border-radius: 5px;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
     }
+
+    
 
 
 }
