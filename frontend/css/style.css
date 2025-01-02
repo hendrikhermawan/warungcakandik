@@ -323,6 +323,14 @@ body {
         border-color: #004085;
     }
 
+    /* Tambahkan efek hover dengan menggunakan class 'hover' */
+    #semuaButton.hover {
+        background-color: #007065;
+        border-color: #007065;
+        color: white;
+    }
+
+
 
     .header {
         display: flex;
