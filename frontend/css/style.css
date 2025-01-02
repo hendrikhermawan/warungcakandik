@@ -455,7 +455,9 @@ body {
         background-color: #ffffff;
         padding: 10px 10px 10px 10px;
     }
-
+    .footer-icon a i.fa-home {
+        color: #007065;
+    }
     .footer-icon i {
         font-size: 20px;
     }
