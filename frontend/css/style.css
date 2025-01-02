@@ -187,13 +187,19 @@ body {
         height: 150px;
         width: 100%;
         border-radius: 15px;
-        background: linear-gradient(to right, #424242, #c2c2c2); /* Gradasi warna */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Menambahkan shadow agar lebih menarik */
-        padding: 10px; /* Menambahkan padding untuk isi yang lebih baik */
-        color: white; /* Menjadikan teks lebih kontras dengan background */
+        background: linear-gradient(to right, #424242, #c2c2c2);
+        /* Gradasi warna */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Menambahkan shadow agar lebih menarik */
+        padding: 10px;
+        /* Menambahkan padding untuk isi yang lebih baik */
+        color: white;
+        /* Menjadikan teks lebih kontras dengan background */
     }
-    .banner-image{
-margin-left: 90px;    }
+
+    .banner-image {
+        margin-left: 90px;
+    }
 
     .banner h1 {
         font-size: 30px;
@@ -278,34 +284,38 @@ margin-left: 90px;    }
 
     .main-content {
         padding: 0 20px 80px 20px;
-        
+
     }
+
     .static-content {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px;
-        border-bottom: 1px solid #ddd; /* Opsional: untuk pemisahan visual */
+        border-bottom: 1px solid #ddd;
+        /* Opsional: untuk pemisahan visual */
     }
-    
+
     .static-content h4 {
         margin: 0;
         font-size: 1.5em;
         font-weight: bold;
     }
-    
+
     .static-content a {
         text-decoration: none;
-        color: #007BFF; /* Warna biru standar */
+        color: #007BFF;
+        /* Warna biru standar */
         font-size: 1em;
         font-weight: normal;
         transition: color 0.3s;
     }
-    
+
     .static-content a:hover {
-        color: #0056b3; /* Warna biru lebih gelap untuk efek hover */
+        color: #0056b3;
+        /* Warna biru lebih gelap untuk efek hover */
     }
-    
+
 
     /* Styling untuk container tombol kategori */
     .category-buttons {
@@ -462,9 +472,11 @@ margin-left: 90px;    }
         background-color: #ffffff;
         padding: 10px 10px 10px 10px;
     }
+
     .footer-icon a i.fa-home {
         color: #007065;
     }
+
     .footer-icon i {
         font-size: 20px;
     }
