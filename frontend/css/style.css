@@ -187,17 +187,24 @@ body {
         height: 150px;
         width: 100%;
         border-radius: 15px;
-        background-color: #a5a5a5;
+        background: linear-gradient(to right, #424242, #c2c2c2); /* Gradasi warna */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Menambahkan shadow agar lebih menarik */
+        padding: 10px; /* Menambahkan padding untuk isi yang lebih baik */
+        color: white; /* Menjadikan teks lebih kontras dengan background */
     }
+    .banner-image{
+margin-left: 90px;    }
 
     .banner h1 {
         font-size: 30px;
-        margin: 0;
+        margin: 10px;
     }
 
     .banner p {
         font-size: 16px;
-        margin: 10px 0 0;
+        margin: 1px 0 0;
+        margin-left: 5px;
+        margin-top: 10px;
     }
 
     .banner .cta-button {
