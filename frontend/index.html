@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="js/script.js"></script>
     <title>home screen</title>
 </head>
 
@@ -38,12 +39,15 @@
     </div>
 
     <div class="category-buttons">
-        <button>SEMUA</button>
-        <button>BADOKAN</button>
-        <button>OMBEAN</button>
+        <button id="semuaButton"><i class="fas fa-utensils"></i> SEMUA</button>
+        <button><i class="fa-solid fa-drumstick-bite"></i> MAEM</button>
+        <button><i class="fa-solid fa-wine-bottle"></i> OMBE</button>
     </div>
 
-    <div class="popular-today">
+
+
+
+    <div class="main-content">
         <div class="header">
             <h4>Hot Menu</h4>
             <a href="#">See all</a>
@@ -57,7 +61,32 @@
                 <button>+</button>
             </div>
         </div>
+        <div class="product-item">
+            <img src="images/assets/product/ayam-bakar.png" alt="Nyambek Goreng Tepung">
+            <div class="product-info">
+                <h3>Nyambek Goreng Tepung</h3>
+                <p class="price">Rp. 50.000</p>
+                <p class="rating">4.9 (210)</p>
+                <button>+</button>
+            </div>
+        </div>
     </div>
+
+    <div class="footer">
+        <div class="footer-icon">
+            <a href="index.html">
+                <i>&#8962;</i>
+                <p>Home</p>
+            </a>
+        </div>
+        <div class="footer-icon">
+            <a href="cart.html">
+                <i>&#128722;</i>
+                <p>Cart</p>
+            </a>
+        </div>
+    </div>
+
 
 
 
