@@ -105,3 +105,5 @@ window.onload = function () {
     // Muat semua menu saat halaman dimuat
     loadMenu('all');
 };
+
+
