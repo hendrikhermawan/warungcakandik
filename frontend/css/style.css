@@ -150,12 +150,12 @@ body {
         box-shadow: 0 0 8px rgba(240, 125, 49, 0.5); 
     }
     .lokasi {
-        display:block;
+        /* display:block; */
         text-align: center;
         align-items: center;
         gap: 10px; 
-        font-size: 10px; 
-        color: #333;
+        font-size: 13px; 
+        color: #686868;
         padding: 10px; 
         border-radius: 5px;
         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
