@@ -271,7 +271,34 @@ body {
 
     .main-content {
         padding: 0 20px 80px 20px;
+        
     }
+    .static-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd; /* Opsional: untuk pemisahan visual */
+    }
+    
+    .static-content h4 {
+        margin: 0;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    
+    .static-content a {
+        text-decoration: none;
+        color: #007BFF; /* Warna biru standar */
+        font-size: 1em;
+        font-weight: normal;
+        transition: color 0.3s;
+    }
+    
+    .static-content a:hover {
+        color: #0056b3; /* Warna biru lebih gelap untuk efek hover */
+    }
+    
 
     /* Styling untuk container tombol kategori */
     .category-buttons {

@@ -5,7 +5,8 @@ if (window.location.pathname !== '/WARUNGCAKANDIK/frontend/index.html') {
 window.onload = function () {
     var semuaButton = document.getElementById('semuaButton');
     var buttons = document.querySelectorAll('.category-buttons button');
-    var menuList = document.querySelector('.main-content');
+    var menuContainer = document.querySelector('.menu-container'); // Container untuk data menu
+    var menuList = document.querySelector('.menu-list'); // Daftar menu dalam main-content
 
     // Fungsi untuk memuat data menu dari backend
     async function loadMenu(category) {
@@ -19,8 +20,10 @@ window.onload = function () {
                 return;
             }
 
-            menuList.innerHTML = ''; // Bersihkan konten sebelumnya
+            // Kosongkan menu list sebelumnya
+            menuList.innerHTML = '';
 
+            // Tambahkan item menu baru ke dalam menu list
             menuItems.forEach(item => {
                 const productItem = document.createElement('div');
                 productItem.classList.add('product-item');
@@ -84,7 +87,7 @@ window.onload = function () {
     // Tambahkan event listener untuk setiap tombol
     buttons.forEach(function (button) {
         button.addEventListener('click', function () {
-            // Hapus efek hover dari tombol "SEMUA" jika tombol lain diklik
+            // Hapus efek hover dari semua tombol dan tambahkan ke tombol yang diklik
             buttons.forEach(btn => btn.classList.remove('hover'));
             button.classList.add('hover');
 
