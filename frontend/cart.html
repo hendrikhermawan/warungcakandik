@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Pesanan Anda</title>
     <style>
         body {
@@ -119,21 +121,25 @@
             padding: 10px 0;
         }
 
-        .footer-icon {
-            text-align: center;
-            color: #008e76;
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 10px 0;
         }
 
         .footer-icon i {
-            font-size: 24px;
+            font-size: 20px;
         }
 
         .footer-icon p {
-            margin: 5px 0 0;
-            font-size: 12px;
+            font-size: 10px;
         }
     </style>
 </head>
+
 <body>
     <div class="header">Pesanan Anda</div>
     <div class="container">
@@ -170,17 +176,19 @@
     <div class="footer">
         <div class="footer-icon">
             <a href="index.html">
-                <i>&#8962;</i>
+                <i class="fas fa-home"></i>
                 <p>Home</p>
             </a>
         </div>
         <div class="footer-icon">
             <a href="cart.html">
-                <i>&#128722;</i>
+                <i class="fas fa-shopping-cart"></i>
                 <p>Cart</p>
             </a>
         </div>
     </div>
+    
 
 </body>
+
 </html>
