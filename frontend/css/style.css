@@ -226,11 +226,8 @@ body {
         margin-top: 20px;
         display: flex;
         justify-content: center;
-        /* Tombol ditata di tengah secara horizontal */
         align-items: center;
-        /* Mengatur tombol agar terpusat secara vertikal */
         gap: 15px;
-        /* Memberikan jarak antar tombol */
     }
 
     /* Styling untuk tombol kategori */
