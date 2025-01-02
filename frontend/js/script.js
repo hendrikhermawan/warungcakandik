@@ -31,10 +31,44 @@ window.onload = function () {
                         <h3>${item.name}</h3>
                         <p class="price">Rp. ${parseInt(item.price).toLocaleString('id-ID')}</p>
                         <p class="rating">Rating: 4.9</p>
-                        <button data-id="${item.menu_id}" class="add-to-cart">+</button>
+                        <button class="add-to-cart" data-name="${item.name}" data-price="${item.price}" data-image="${item.image_url}">+</button>
                     </div>
                 `;
                 menuList.appendChild(productItem);
+
+                // Tambahkan event listener untuk tombol "Add to Cart"
+                const addToCartButton = productItem.querySelector('.add-to-cart');
+                addToCartButton.addEventListener('click', () => {
+                    const name = addToCartButton.getAttribute('data-name');
+                    const price = parseInt(addToCartButton.getAttribute('data-price'), 10);
+                    const image = addToCartButton.getAttribute('data-image');
+
+                    // Ambil data keranjang dari localStorage
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    // Cari item di keranjang
+                    const existingItem = cart.find(item => item.name === name);
+
+                    if (existingItem) {
+                        // Jika item sudah ada, tambahkan quantity
+                        existingItem.quantity += 1;
+                        existingItem.subTotal += price;
+                    } else {
+                        // Jika item belum ada, tambahkan sebagai item baru
+                        cart.push({
+                            name,
+                            price,
+                            image,
+                            quantity: 1,
+                            subTotal: price
+                        });
+                    }
+
+                    // Simpan kembali ke localStorage
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    alert(`${name} telah ditambahkan ke keranjang!`);
+                });
             });
         } catch (error) {
             console.error('Error loading menu:', error);
