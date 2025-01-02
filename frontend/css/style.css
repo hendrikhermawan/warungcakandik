@@ -221,18 +221,19 @@ body {
     }
     /* Styling untuk container tombol kategori */
 .category-buttons {
+    margin-top:20px ;
     display: flex;
     justify-content: center; /* Tombol ditata di tengah secara horizontal */
     align-items: center; /* Mengatur tombol agar terpusat secara vertikal */
-    gap: 20px; /* Memberikan jarak antar tombol */
+    gap: 15px; /* Memberikan jarak antar tombol */
 }
 
 /* Styling untuk tombol kategori */
 .category-buttons button {
-    width: 120px;
+    width: 100px;
     padding: 10px; /* Memberikan ruang di sekitar teks tombol */
-    font-size: 16px; /* Menyesuaikan ukuran font tombol */
-    background-color: #f07d31; /* Warna latar tombol */
+    font-size: 12px; /* Menyesuaikan ukuran font tombol */
+    background-color: #007065; /* Warna latar tombol */
     color: white;
     border: 2px solid transparent;
     border-radius: 8px;
