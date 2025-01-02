@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Screen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header img {
+            height: 40px;
+        }
+
+        .header .location {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .header .icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .promo {
+            background-color: #ffe0b2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .promo h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #ff7043;
+        }
+
+        .promo button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #008e76;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-bar {
+            margin: 15px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px;
+        }
+
+        .categories button {
+            background-color: white;
+            border: 1px solid #008e76;
+            color: #008e76;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .popular {
+            margin: 15px;
+        }
+
+        .popular h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .popular-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .popular-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+        }
+
+        .popular-item .info {
+            margin-left: 10px;
+            flex: 1;
+        }
+
+        .popular-item .info h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .popular-item .info p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .popular-item .add {
+            background-color: #008e76;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        .footer-icon {
+            text-align: center;
+            color: #008e76;
+        }
+
+        .footer-icon i {
+            font-size: 24px;
+        }
+
+        .footer-icon p {
+            margin: 5px 0 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="#" alt="Logo">
+        <div class="location">Tanggulangin, Sidoarjo</div>
+        <div class="icon">&#128276;</div>
+    </div>
+
+    <div class="promo">
+        <h1>Hot Promo<br>90% OFF</h1>
+        <button>Pesan Sekarang</button>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Cari makanan atau minuman">
+    </div>
+
+    <div class="categories">
+        <button>Semua</button>
+        <button>Badokan</button>
+        <button>Ombean</button>
+    </div>
+
+    <div class="popular">
+        <h2>Popular Today <span>See all</span></h2>
+        <div class="popular-item">
+            <img src="#" alt="Nyambek Goreng Tepung">
+            <div class="info">
+                <h3>Nyambek Goreng Tepung</h3>
+                <p>Rp. 50.000</p>
+                <p>⭐ 4.9 (210)</p>
+            </div>
+            <button class="add">+</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-icon">
+            <i>&#8962;</i>
+            <p>Home</p>
+        </div>
+        <div class="footer-icon">
+            <i>&#128722;</i>
+            <p>Cart</p>
+        </div>
+    </div>
+</body>
+</html>
