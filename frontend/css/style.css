@@ -233,8 +233,7 @@ body {
     /* Styling untuk tombol kategori */
     .category-buttons button {
         width: 95px;
-        padding: 10px;
-        /* Memberikan ruang di sekitar teks tombol */
+        padding: 12px;
         font-size: 12px;
         /* Menyesuaikan ukuran font tombol */
         background-color: #007065;
@@ -244,6 +243,10 @@ body {
         border-radius: 10px;
         cursor: pointer;
         transition: all 0.3s ease;
+    }
+    .category-buttons i {
+        margin-right: 8px;  
+        font-size: 16px;   
     }
 
     /* Efek hover untuk tombol kategori */
