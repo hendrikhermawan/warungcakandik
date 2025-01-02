@@ -1,3 +1,7 @@
+if (window.location.pathname !== '/WARUNGCAKANDIK/frontend/index.html') {
+    window.location.href = '/WARUNGCAKANDIK/frontend/index.html';
+}
+
 window.onload = function() {
     var semuaButton = document.getElementById('semuaButton');
     var buttons = document.querySelectorAll('.category-buttons button');
