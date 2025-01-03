@@ -36,11 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
         totalPrice += item.subTotal;
 
         // Tambahkan event listener untuk tombol increment
+        // Tambahkan event listener untuk tombol increment
         orderItem.querySelector('.increment').addEventListener('click', () => {
             item.quantity += 1;
             item.subTotal += item.price;
             localStorage.setItem('cart', JSON.stringify(cart));
-            renderCart(); // Refresh halaman
+            renderCart();
         });
 
         // Tambahkan event listener untuk tombol decrement
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.quantity -= 1;
                 item.subTotal -= item.price;
                 localStorage.setItem('cart', JSON.stringify(cart));
-                renderCart(); // Refresh halaman
+                renderCart();
             }
         });
 
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         orderItem.querySelector('.trash').addEventListener('click', () => {
             cart = cart.filter(cartItem => cartItem.name !== item.name);
             localStorage.setItem('cart', JSON.stringify(cart));
-            renderCart(); // Refresh halaman
+            renderCart();
         });
     });
 
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('/WARUNGCAKANDIK/backend/save_order.php', {
+            const response = await fetch('/WARUNGCAKANDIK/backend/upload_order.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -97,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (result.success) {
                 alert('Pesanan berhasil disimpan!');
-                localStorage.removeItem('cart'); // Kosongkan keranjang
-                location.reload(); // Refresh halaman
+                localStorage.removeItem('cart');
+                window.location.href = `/WARUNGCAKANDIK/print.html?table_id=${encodeURIComponent(tableId)}`;
             } else {
                 alert(result.error || 'Terjadi kesalahan saat menyimpan pesanan');
             }
@@ -109,8 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Fungsi untuk merender ulang keranjang
 function renderCart() {
     document.dispatchEvent(new Event('DOMContentLoaded'));
 }
-

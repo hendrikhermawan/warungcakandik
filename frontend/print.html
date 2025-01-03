@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .order {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detail Pesanan</h1>
+    <div id="order-details"></div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const tableId = urlParams.get('table_id');
+
+        if (!tableId) {
+            document.getElementById('order-details').innerText = 'Nomor meja tidak ditemukan.';
+        } else {
+            fetch(`/WARUNGCAKANDIK/backend/get_order.php?table_id=${encodeURIComponent(tableId)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('order-details').innerText = data.error;
+                        return;
+                    }
+
+                    const orderDiv = document.getElementById('order-details');
+                    orderDiv.innerHTML = `<h2>Nomor Meja: ${tableId}</h2><ul>` + 
+                        data.orders.map(order => `
+                            <li>${order.menu_name} - ${order.quantity} x Rp. ${order.price.toLocaleString('id-ID')} = Rp. ${order.sub_total.toLocaleString('id-ID')}</li>
+                        `).join('') + 
+                        `</ul><h3>Total Harga: Rp. ${data.total_price.toLocaleString('id-ID')}</h3>`;
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('order-details').innerText = 'Gagal memuat data pesanan.';
+                });
+        }
+    </script>
+</body>
+</html>
