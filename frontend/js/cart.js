@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Gagal mengirim pesanan. Silakan coba lagi.');
+            alert('Pesanan Anda Sedang di Proses');
         }
     });
 });
