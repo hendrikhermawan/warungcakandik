@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Jan 2025 pada 14.28
+-- Waktu pembuatan: 03 Jan 2025 pada 02.48
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -67,6 +67,19 @@ CREATE TABLE `orders` (
   `payment_status` enum('unpaid','paid') DEFAULT 'unpaid'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `table_id`, `order_status`, `order_time`, `total_price`, `payment_status`) VALUES
+(1, 3, 'pending', '2025-01-03 01:36:32', '20000.00', 'unpaid'),
+(2, 2, 'pending', '2025-01-03 01:37:58', '80000.00', 'unpaid'),
+(3, 3, 'pending', '2025-01-03 01:38:50', '80000.00', 'unpaid'),
+(4, 7, 'pending', '2025-01-03 01:39:43', '101000.00', 'unpaid'),
+(5, 10, 'pending', '2025-01-03 01:40:49', '107500.00', 'unpaid'),
+(6, 12, 'pending', '2025-01-03 01:44:14', '20000.00', 'unpaid'),
+(7, 12, 'pending', '2025-01-03 01:44:52', '20000.00', 'unpaid');
+
 -- --------------------------------------------------------
 
 --
@@ -91,6 +104,26 @@ CREATE TABLE `tables` (
   `table_id` int(11) NOT NULL,
   `qr_code` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tables`
+--
+
+INSERT INTO `tables` (`table_id`, `qr_code`) VALUES
+(10, 'tab1410j'),
+(11, 'tab1411k'),
+(12, 'tab1412l'),
+(13, 'tab1413m'),
+(14, 'tab1414n'),
+(1, 'tab141a'),
+(2, 'tab142b'),
+(3, 'tab143c'),
+(4, 'tab144d'),
+(5, 'tab145e'),
+(6, 'tab146f'),
+(7, 'tab147g'),
+(8, 'tab148h'),
+(9, 'tab149i');
 
 --
 -- Indexes for dumped tables
@@ -121,7 +154,8 @@ ALTER TABLE `order_details`
 -- Indeks untuk tabel `tables`
 --
 ALTER TABLE `tables`
-  ADD PRIMARY KEY (`table_id`);
+  ADD PRIMARY KEY (`table_id`),
+  ADD UNIQUE KEY `qr_code` (`qr_code`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -137,7 +171,7 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT untuk tabel `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `order_details`
@@ -149,7 +183,7 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT untuk tabel `tables`
 --
 ALTER TABLE `tables`
-  MODIFY `table_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `table_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

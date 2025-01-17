@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-// Konfigurasi koneksi database
+// Database connection
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -9,49 +9,30 @@ $database = 'warungmakan';
 
 $conn = new mysqli($host, $user, $password, $database);
 
-// Periksa koneksi database
 if ($conn->connect_error) {
-    die(json_encode(['error' => 'Koneksi gagal: ' . $conn->connect_error]));
+    echo json_encode(['error' => 'Database connection failed: ' . $conn->connect_error]);
+    exit;
 }
 
-// Ambil data JSON dari permintaan
-$rawData = file_get_contents('php://input');
-$data = json_decode($rawData, true);
+$data = json_decode(file_get_contents('php://input'), true);
 
-// Debugging: Tampilkan data yang diterima
-error_log("Data diterima: $rawData");
-
-// Validasi data input
-if (!$data || !isset($data['table_id']) || !isset($data['orders']) || !is_array($data['orders'])) {
-    echo json_encode(['error' => 'Data tidak valid']);
+if (!$data || !isset($data['orders']) || !isset($data['table_id'])) {
+    echo json_encode(['error' => 'Invalid data']);
     exit;
 }
 
 $table_id = $data['table_id'];
 $orders = $data['orders'];
 
-// Hitung total harga
+$stmt = $conn->prepare("INSERT INTO orders (table_id, order_status, total_price) VALUES (?, 'pending', ?)");
 $total_price = array_sum(array_column($orders, 'subTotal'));
+$stmt->bind_param("id", $table_id, $total_price);
 
-// Mulai transaksi database
-$conn->begin_transaction();
-
-try {
-    // Simpan data pesanan ke tabel "orders"
-    $stmt = $conn->prepare("INSERT INTO orders (table_id, order_status, total_price) VALUES (?, 'pending', ?)");
-    $stmt->bind_param("id", $table_id, $total_price);
-    $stmt->execute();
-
-    $order_id = $stmt->insert_id; // Dapatkan ID pesanan yang baru saja disimpan
-
-    // Simpan detail pesanan ke tabel "order_details"
+if ($stmt->execute()) {
+    $order_id = $stmt->insert_id;
     $detail_stmt = $conn->prepare("INSERT INTO order_details (order_id, menu_id, quantity, sub_total) VALUES (?, ?, ?, ?)");
 
     foreach ($orders as $order) {
-        if (!isset($order['menu_id'], $order['quantity'], $order['subTotal'])) {
-            throw new Exception("Format data pesanan tidak valid");
-        }
-
         $menu_id = $order['menu_id'];
         $quantity = $order['quantity'];
         $sub_total = $order['subTotal'];
@@ -60,22 +41,10 @@ try {
         $detail_stmt->execute();
     }
 
-    // Komit transaksi
-    $conn->commit();
-
-    echo json_encode(['success' => true, 'message' => 'Pesanan berhasil disimpan']);
-} catch (Exception $e) {
-    // Batalkan transaksi jika terjadi kesalahan
-    $conn->rollback();
-
-    error_log("Error: " . $e->getMessage());
-    echo json_encode(['error' => 'Gagal menyimpan pesanan: ' . $e->getMessage()]);
+    echo json_encode(['success' => true, 'message' => 'Order successfully saved']);
+} else {
+    echo json_encode(['error' => 'Failed to save order']);
 }
 
-// Tutup koneksi
 $stmt->close();
-if (isset($detail_stmt)) {
-    $detail_stmt->close();
-}
 $conn->close();
-?>

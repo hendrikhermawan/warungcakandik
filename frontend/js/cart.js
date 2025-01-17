@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         totalPrice += item.subTotal;
 
         // Tambahkan event listener untuk tombol increment
-        // Tambahkan event listener untuk tombol increment
         orderItem.querySelector('.increment').addEventListener('click', () => {
             item.quantity += 1;
             item.subTotal += item.price;
@@ -105,11 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Pesanan Anda Sedang di Proses');
+            alert('pesanan sedang di proses');
         }
     });
 });
 
+// Fungsi untuk merender ulang keranjang
 function renderCart() {
     document.dispatchEvent(new Event('DOMContentLoaded'));
 }
